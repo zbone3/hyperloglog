@@ -1,6 +1,6 @@
 {
   "name": "hyperloglog-lite",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "HyperLogLog Distinct Value Estimator with an alternative implementation to murmurhash 128bit based on murmurhash-native instead of murmurhashv3",
   "keywords": [
     "hyperloglog",
@@ -21,7 +21,8 @@
       "name": "Brian Ollenberger",
       "email": "brian@optimizely.com",
       "web": "https://www.github.com/bollenberger"
-    },{
+    },
+    {
       "name": "Ziv Eli",
       "web": "https://www.github.com/zbone3"
     }
@@ -35,7 +36,7 @@
     "url": "https://github.com/zbone3/hyperloglog.git"
   },
   "dependencies": {
-    "murmurhash-native": "3.4.1"
+    "murmurhash32-node": "^1.0.1"
   },
   "devDependencies": {
     "vows": "0.7.x"

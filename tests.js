@@ -28,6 +28,25 @@ vows.describe('HyperLogLog').addBatch({
     assert.equal(hll.count(), 3)
   },
 
+  'counts large set of unique values': function () {
+    const valueSetSize = 1000
+    const randomSeed = 8383838383
+    const randomValueArray = Array.from({ length: valueSetSize }, () => Math.floor(Math.random() * randomSeed))
+    const randomValueSet = Array.from(new Set(randomValueArray))
+
+    var hll = HyperLogLog(12)
+    randomValueSet.forEach(value => hll.add(hash(value.toString())))
+
+    const smoothedRelativeError = Math.ceil(hll.relative_error() * 100) / 100
+    const errorMargin = smoothedRelativeError * valueSetSize
+    const minAcceptable = Math.floor(valueSetSize - errorMargin)
+    const maxAcceptable = Math.ceil(valueSetSize + errorMargin)
+    const got = hll.count()
+    console.log(`max ${maxAcceptable} | min ${minAcceptable} - got ${hll.count()}`)
+    assert.equal(hll.count() <= maxAcceptable && hll.count() >= minAcceptable, true)
+
+  },
+
   'merges overlapping counts': function () {
     var hll = HyperLogLog(15)
     var hll2 = HyperLogLog(15)

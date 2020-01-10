@@ -1,8 +1,8 @@
-const murmurHashNative = require('murmurhash-native')
+const murmurHashNode = require('murmurhash32-node')
 
 function hashMurmur32Bit (value, seed) {
   seed = seed || 0
-  return murmurHashNative.murmurHash32(value, seed)
+  return murmurHashNode.bit32.v2(value, seed)
 }
 
 function getSimulated128BitHash (value) {

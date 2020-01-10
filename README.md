@@ -28,8 +28,8 @@ API
 ### HyperLogLog.hash(string)
 
 In order to count items, they must first be hashed. The `hash()` function provides a suitable hash.
-Its output is an array of four 32 bit postive integers, which, taken together constitute the complete
-hash of the input string. This version uses an alternative implementation of MurmurHashV3 by generating 4 index 32bit hash array using [murmurhash-native](https://www.npmjs.com/package/murmurhash-native).
+Its output is an array of four 32 bit positive integers, which, taken together constitute the complete
+hash of the input string. This version uses an alternative implementation of MurmurHashV3 by generating 4 index 32bit hash array using [murmurhash32-node](https://www.npmjs.com/package/murmurhash32-node).
 This removes some dependencies and complexities originating from the installation of murmurhashv3 library on node:alpine docker images. 
 
 ### HyperLogLog(n)

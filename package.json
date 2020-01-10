@@ -21,6 +21,9 @@
       "name": "Brian Ollenberger",
       "email": "brian@optimizely.com",
       "web": "https://www.github.com/bollenberger"
+    },{
+      "name": "Ziv Eli",
+      "web": "https://www.github.com/zbone3"
     }
   ],
   "main": "hyperloglog.js",

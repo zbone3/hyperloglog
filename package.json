@@ -1,7 +1,7 @@
 {
-  "name": "hyperloglog",
-  "version": "0.1.2",
-  "description": "HyperLogLog Distinct Value Estimator",
+  "name": "hyperloglog-lite",
+  "version": "1.0.0",
+  "description": "HyperLogLog Distinct Value Estimator with an alternative implementation to murmurhash 128bit based on murmurhash-native instead of murmurhashv3",
   "keywords": [
     "hyperloglog",
     "cardinality",
@@ -29,15 +29,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/optimizely/hyperloglog.git"
+    "url": "https://github.com/zbone3/hyperloglog.git"
   },
   "dependencies": {
-    "murmurhash3": "0.2.x"
+    "murmurhash-native": "3.4.1"
   },
   "devDependencies": {
     "vows": "0.7.x"
-  },
-  "engines": {
-    "node": ">= 0.10.x"
   }
 }

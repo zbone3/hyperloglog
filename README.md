@@ -1,5 +1,5 @@
-HyperLogLog Distinct Value Estimator
-====================================
+HyperLogLog Distinct Value Estimator (Alternative Murmur implementation)
+==========================================================================
 
 [HyperLogLog](http://algo.inria.fr/flajolet/Publications/FlFuGaMe07.pdf) (HLL) is a probabilistic
 estimator of the cardinality of a stream of values. Given
@@ -11,8 +11,8 @@ Example
 -------
 
 ```javascript
-var HyperLogLog = require('hyperloglog');
-var hll = HyperLogLog(12);
+const HyperLogLog = require('hyperloglog');
+const hll = HyperLogLog(12);
 
 // Insert three values, two of them distinct.
 hll.add(HyperLogLog.hash("value1"));
@@ -29,7 +29,8 @@ API
 
 In order to count items, they must first be hashed. The `hash()` function provides a suitable hash.
 Its output is an array of four 32 bit postive integers, which, taken together constitute the complete
-hash of the input string. Currently the implementation is MurmurHash3-128.
+hash of the input string. This version uses an alternative implementation of MurmurHashV3 by generating 4 index 32bit hash array using [murmurhash-native](https://www.npmjs.com/package/murmurhash-native).
+This removes some dependencies and complexities originating from the installation of murmurhashv3 library on node:alpine docker images. 
 
 ### HyperLogLog(n)
 
